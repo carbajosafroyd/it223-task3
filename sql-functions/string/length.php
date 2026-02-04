@@ -1,5 +1,5 @@
 <?php
-include '../db_connect.php';
+include '../../db_connect.php';
 $sql = "SELECT first_name, LENGTH(first_name) AS name_length FROM employees ORDER BY name_length DESC LIMIT 5";
 $result = $conn->query($sql);
 ?>
@@ -29,7 +29,7 @@ $result = $conn->query($sql);
         $conn->close();
         ?>
     </table>
-    <p><a href="../index.php">Back</a></p>
+    <p><a href="../../index.php">Back</a></p>
 </body>
 
 </html>

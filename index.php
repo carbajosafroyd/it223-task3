@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>SQL Functions - Task 3</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   
     <style>
         body {
             font-family: Arial;
@@ -52,45 +52,234 @@
         </tr>
 
         <tr>
+            <td><b>ASCII()</b></td>
+            <td>Returns the ASCII value of the first character</td>
+            <td class="code">SELECT first_name, ASCII(first_name) AS ascii_value FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/ascii.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>CHAR_LENGTH()</b></td>
+            <td>Returns the length of a string in characters</td>
+            <td class="code">SELECT first_name, CHAR_LENGTH(first_name) AS char_length FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/char_length.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>CHARACTER_LENGTH()</b></td>
+            <td>Returns the length of a string in characters</td>
+            <td class="code">SELECT first_name, CHARACTER_LENGTH(first_name) AS character_length FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/character_length.php">View Output</a></td>
+        </tr>
+
+        <tr>
             <td><b>CONCAT()</b></td>
             <td>Combines strings together</td>
             <td class="code">SELECT CONCAT(first_name, ' ', last_name) AS full_name FROM employees LIMIT 5;</td>
-            <td><a href="sql-functions/concat.php">View Output</a></td>
+            <td><a href="sql-functions/string/concat.php">View Output</a></td>
         </tr>
 
         <tr>
-            <td><b>UPPER()</b></td>
-            <td>Converts to uppercase</td>
-            <td class="code">SELECT first_name, UPPER(first_name) AS uppercase_name FROM employees LIMIT 5;</td>
-            <td><a href="sql-functions/upper.php">View Output</a></td>
+            <td><b>CONCAT_WS()</b></td>
+            <td>Concatenates strings with a separator</td>
+            <td class="code">SELECT CONCAT_WS(', ', first_name, last_name, department) AS employee_info FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/concat_ws.php">View Output</a></td>
         </tr>
 
         <tr>
-            <td><b>LOWER()</b></td>
-            <td>Converts to lowercase</td>
-            <td class="code">SELECT email, LOWER(email) AS lowercase_email FROM employees LIMIT 5;</td>
-            <td><a href="sql-functions/lower.php">View Output</a></td>
+            <td><b>FIELD()</b></td>
+            <td>Returns the index position of a value in a list</td>
+            <td class="code">SELECT department, FIELD(department, 'IT', 'Sales', 'HR', 'Marketing') AS position FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/field.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>FIND_IN_SET()</b></td>
+            <td>Returns position of a string in a comma-separated list</td>
+            <td class="code">SELECT first_name, FIND_IN_SET('IT', 'Sales,IT,HR,Marketing') AS found_position FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/find_in_set.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>FORMAT()</b></td>
+            <td>Formats a number with thousand separators</td>
+            <td class="code">SELECT first_name, salary, FORMAT(salary, 2) AS formatted_salary FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/format.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>INSERT()</b></td>
+            <td>Inserts a substring at a specified position</td>
+            <td class="code">SELECT first_name, INSERT(first_name, 1, 0, 'Mr. ') AS modified_name FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/insert.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>INSTR()</b></td>
+            <td>Returns the position of first occurrence of a substring</td>
+            <td class="code">SELECT email, INSTR(email, '@') AS at_position FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/instr.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>LCASE()</b></td>
+            <td>Converts a string to lowercase</td>
+            <td class="code">SELECT first_name, LCASE(first_name) AS lowercase_name FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/lcase.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>LEFT()</b></td>
+            <td>Extracts a number of characters from the left</td>
+            <td class="code">SELECT first_name, LEFT(first_name, 3) AS first_three FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/left.php">View Output</a></td>
         </tr>
 
         <tr>
             <td><b>LENGTH()</b></td>
             <td>Returns string length</td>
             <td class="code">SELECT first_name, LENGTH(first_name) AS name_length FROM employees ORDER BY name_length DESC LIMIT 5;</td>
-            <td><a href="sql-functions/length.php">View Output</a></td>
+            <td><a href="sql-functions/string/length.php">View Output</a></td>
         </tr>
 
         <tr>
-            <td><b>SUBSTRING()</b></td>
-            <td>Extracts part of string</td>
-            <td class="code">SELECT email, SUBSTRING(email, 1, 5) AS email_prefix FROM employees LIMIT 5;</td>
-            <td><a href="sql-functions/substring.php">View Output</a></td>
+            <td><b>LOCATE()</b></td>
+            <td>Returns the position of a substring in a string</td>
+            <td class="code">SELECT first_name, LOCATE('a', first_name) AS a_position FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/locate.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>LOWER()</b></td>
+            <td>Converts to lowercase</td>
+            <td class="code">SELECT email, LOWER(email) AS lowercase_email FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/lower.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>LPAD()</b></td>
+            <td>Left-pads a string with another string to a certain length</td>
+            <td class="code">SELECT first_name, LPAD(first_name, 10, '*') AS padded_name FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/lpad.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>LTRIM()</b></td>
+            <td>Removes leading spaces from a string</td>
+            <td class="code">SELECT LTRIM('   Hello World') AS trimmed_text FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/string/ltrim.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>MID()</b></td>
+            <td>Extracts a substring from a string (starting at any position)</td>
+            <td class="code">SELECT first_name, MID(first_name, 2, 3) AS middle_chars FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/mid.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>POSITION()</b></td>
+            <td>Returns the position of a substring in a string</td>
+            <td class="code">SELECT email, POSITION('@' IN email) AS at_position FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/position.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>REPEAT()</b></td>
+            <td>Repeats a string a specified number of times</td>
+            <td class="code">SELECT first_name, REPEAT(first_name, 2) AS repeated_name FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/repeat.php">View Output</a></td>
         </tr>
 
         <tr>
             <td><b>REPLACE()</b></td>
             <td>Replaces text in string</td>
             <td class="code">SELECT email, REPLACE(email, '@company.com', '@newdomain.com') AS new_email FROM employees LIMIT 5;</td>
-            <td><a href="sql-functions/replace.php">View Output</a></td>
+            <td><a href="sql-functions/string/replace.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>REVERSE()</b></td>
+            <td>Reverses a string</td>
+            <td class="code">SELECT first_name, REVERSE(first_name) AS reversed_name FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/reverse.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>RIGHT()</b></td>
+            <td>Extracts a number of characters from the right</td>
+            <td class="code">SELECT first_name, RIGHT(first_name, 3) AS last_three FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/right.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>RPAD()</b></td>
+            <td>Right-pads a string with another string to a certain length</td>
+            <td class="code">SELECT first_name, RPAD(first_name, 10, '*') AS padded_name FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/rpad.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>RTRIM()</b></td>
+            <td>Removes trailing spaces from a string</td>
+            <td class="code">SELECT RTRIM('Hello World   ') AS trimmed_text FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/string/rtrim.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>SPACE()</b></td>
+            <td>Returns a string of specified number of spaces</td>
+            <td class="code">SELECT CONCAT('Hello', SPACE(5), 'World') AS spaced_text FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/string/space.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>STRCMP()</b></td>
+            <td>Compares two strings</td>
+            <td class="code">SELECT first_name, last_name, STRCMP(first_name, last_name) AS comparison FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/strcmp.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>SUBSTR()</b></td>
+            <td>Extracts a substring from a string</td>
+            <td class="code">SELECT email, SUBSTR(email, 1, 5) AS email_substr FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/substr.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>SUBSTRING()</b></td>
+            <td>Extracts part of string</td>
+            <td class="code">SELECT email, SUBSTRING(email, 1, 5) AS email_prefix FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/substring.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>SUBSTRING_INDEX()</b></td>
+            <td>Returns a substring before a specified number of delimiter occurs</td>
+            <td class="code">SELECT email, SUBSTRING_INDEX(email, '@', 1) AS username FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/substring_index.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>TRIM()</b></td>
+            <td>Removes leading and trailing spaces from a string</td>
+            <td class="code">SELECT TRIM('   Hello World   ') AS trimmed_text FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/string/trim.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>UCASE()</b></td>
+            <td>Converts a string to uppercase</td>
+            <td class="code">SELECT first_name, UCASE(first_name) AS uppercase_name FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/ucase.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>UPPER()</b></td>
+            <td>Converts to uppercase</td>
+            <td class="code">SELECT first_name, UPPER(first_name) AS uppercase_name FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/string/upper.php">View Output</a></td>
         </tr>
 
         <tr>
@@ -219,7 +408,7 @@
     </table>
 
     <hr>
-    <p>Total: 22 SQL Functions</p>
+    <p>Total: 49 SQL Functions (33 String + 6 Numeric + 6 Date + 4 Advanced)</p>
 </body>
 
 </html>

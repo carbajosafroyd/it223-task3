@@ -1,6 +1,6 @@
 <?php
-include '../db_connect.php';
-$sql = "SELECT email, REPLACE(email, '@company.com', '@new.com') AS new_email FROM employees LIMIT 5";
+include '../../db_connect.php';
+$sql = "SELECT CONCAT(first_name, ' ', last_name) AS full_name FROM employees LIMIT 5";
 $result = $conn->query($sql);
 ?>
 <html>
@@ -8,28 +8,27 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REPLACE() Function</title>
+    <title>CONCAT() Function</title>
 </head>
 
 <body>
-    <h2>REPLACE() Function</h2>
-    <p>Replaces text</p>
+    <h2>CONCAT() Function</h2>
+    <p>Combines strings</p>
     <p><b>SQL Query:</b></p>
     <pre><?php echo $sql; ?></pre>
     <p><b>Results:</b></p>
     <table border="1">
         <tr>
-            <th>Old Email</th>
-            <th>New Email</th>
+            <th>Full Name</th>
         </tr>
         <?php
         while ($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row['email'] . "</td><td>" . $row['new_email'] . "</td></tr>";
+            echo "<tr><td>" . $row['full_name'] . "</td></tr>";
         }
         $conn->close();
         ?>
     </table>
-    <p><a href="../index.php">Back</a></p>
+    <p><a href="../../index.php">Back</a></p>
 </body>
 
 </html>

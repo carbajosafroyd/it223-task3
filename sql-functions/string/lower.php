@@ -1,5 +1,5 @@
 <?php
-include '../db_connect.php';
+include '../../db_connect.php';
 $sql = "SELECT email, LOWER(email) AS lowercase_email FROM employees LIMIT 5";
 $result = $conn->query($sql);
 ?>
@@ -19,8 +19,8 @@ $result = $conn->query($sql);
     <p><b>Results:</b></p>
     <table border="1">
         <tr>
-            <th>Email</th>
-            <th>Lowercase</th>
+            <th>Original Email</th>
+            <th>Lowercase Email</th>
         </tr>
         <?php
         while ($row = $result->fetch_assoc()) {
@@ -29,7 +29,7 @@ $result = $conn->query($sql);
         $conn->close();
         ?>
     </table>
-    <p><a href="../index.php">Back</a></p>
+    <p><a href="../../index.php">Back</a></p>
 </body>
 
 </html>
