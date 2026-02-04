@@ -287,45 +287,255 @@
         </tr>
 
         <tr>
-            <td><b>AVG()</b></td>
-            <td>Calculates average</td>
-            <td class="code">SELECT department, AVG(salary) AS avg_salary FROM employees GROUP BY department;</td>
-            <td><a href="sql-functions/avg.php">View Output</a></td>
+            <td><b>ABS()</b></td>
+            <td>Returns the absolute value of a number</td>
+            <td class="code">SELECT salary, ABS(salary - 60000) AS difference_from_60k FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/numeric/abs.php">View Output</a></td>
         </tr>
 
         <tr>
-            <td><b>SUM()</b></td>
-            <td>Adds up values</td>
-            <td class="code">SELECT department, SUM(salary) AS total_salary FROM employees GROUP BY department;</td>
-            <td><a href="sql-functions/sum.php">View Output</a></td>
+            <td><b>ACOS()</b></td>
+            <td>Returns the arc cosine of a number</td>
+            <td class="code">SELECT ACOS(0.5) AS acos_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/numeric/acos.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>ASIN()</b></td>
+            <td>Returns the arc sine of a number</td>
+            <td class="code">SELECT ASIN(0.5) AS asin_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/numeric/asin.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>ATAN()</b></td>
+            <td>Returns the arc tangent of a number</td>
+            <td class="code">SELECT ATAN(1) AS atan_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/numeric/atan.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>ATAN2()</b></td>
+            <td>Returns the arc tangent of two numbers</td>
+            <td class="code">SELECT ATAN2(1, 2) AS atan2_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/numeric/atan2.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>AVG()</b></td>
+            <td>Calculates average</td>
+            <td class="code">SELECT department, AVG(salary) AS avg_salary FROM employees GROUP BY department;</td>
+            <td><a href="sql-functions/numeric/avg.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>CEIL()</b></td>
+            <td>Returns the smallest integer value greater than or equal to a number</td>
+            <td class="code">SELECT salary, CEIL(salary / 1000) AS ceiled_thousands FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/numeric/ceil.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>CEILING()</b></td>
+            <td>Returns the smallest integer value greater than or equal to a number</td>
+            <td class="code">SELECT salary, CEILING(salary / 1000) AS ceiling_thousands FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/numeric/ceiling.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>COS()</b></td>
+            <td>Returns the cosine of a number</td>
+            <td class="code">SELECT COS(PI()) AS cos_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/numeric/cos.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>COT()</b></td>
+            <td>Returns the cotangent of a number</td>
+            <td class="code">SELECT COT(1) AS cot_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/numeric/cot.php">View Output</a></td>
         </tr>
 
         <tr>
             <td><b>COUNT()</b></td>
             <td>Counts rows</td>
             <td class="code">SELECT department, COUNT(*) AS employee_count FROM employees GROUP BY department;</td>
-            <td><a href="sql-functions/count.php">View Output</a></td>
+            <td><a href="sql-functions/numeric/count.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>DEGREES()</b></td>
+            <td>Converts a radian value to degrees</td>
+            <td class="code">SELECT DEGREES(PI()) AS degrees_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/numeric/degrees.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>DIV</b></td>
+            <td>Integer division</td>
+            <td class="code">SELECT salary, salary DIV 1000 AS thousands FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/numeric/div.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>EXP()</b></td>
+            <td>Returns e raised to the power of a number</td>
+            <td class="code">SELECT EXP(1) AS exp_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/numeric/exp.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>FLOOR()</b></td>
+            <td>Returns the largest integer value less than or equal to a number</td>
+            <td class="code">SELECT salary, FLOOR(salary / 1000) AS floor_thousands FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/numeric/floor.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>GREATEST()</b></td>
+            <td>Returns the greatest value in a list of arguments</td>
+            <td class="code">SELECT first_name, salary, GREATEST(salary, 60000, 50000) AS greatest_value FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/numeric/greatest.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>LEAST()</b></td>
+            <td>Returns the smallest value in a list of arguments</td>
+            <td class="code">SELECT first_name, salary, LEAST(salary, 60000, 70000) AS least_value FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/numeric/least.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>LN()</b></td>
+            <td>Returns the natural logarithm of a number</td>
+            <td class="code">SELECT LN(10) AS ln_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/numeric/ln.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>LOG()</b></td>
+            <td>Returns the natural logarithm of a number</td>
+            <td class="code">SELECT LOG(10) AS log_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/numeric/log.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>LOG10()</b></td>
+            <td>Returns the base-10 logarithm of a number</td>
+            <td class="code">SELECT LOG10(100) AS log10_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/numeric/log10.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>LOG2()</b></td>
+            <td>Returns the base-2 logarithm of a number</td>
+            <td class="code">SELECT LOG2(8) AS log2_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/numeric/log2.php">View Output</a></td>
         </tr>
 
         <tr>
             <td><b>MAX()</b></td>
             <td>Finds maximum value</td>
             <td class="code">SELECT department, MAX(salary) AS max_salary FROM employees GROUP BY department;</td>
-            <td><a href="sql-functions/max.php">View Output</a></td>
+            <td><a href="sql-functions/numeric/max.php">View Output</a></td>
         </tr>
 
         <tr>
             <td><b>MIN()</b></td>
             <td>Finds minimum value</td>
             <td class="code">SELECT department, MIN(salary) AS min_salary FROM employees GROUP BY department;</td>
-            <td><a href="sql-functions/min.php">View Output</a></td>
+            <td><a href="sql-functions/numeric/min.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>MOD()</b></td>
+            <td>Returns the remainder of a division operation</td>
+            <td class="code">SELECT id, id MOD 2 AS is_odd FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/numeric/mod.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>PI()</b></td>
+            <td>Returns the value of PI</td>
+            <td class="code">SELECT PI() AS pi_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/numeric/pi.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>POW()</b></td>
+            <td>Returns the value of a number raised to the power of another number</td>
+            <td class="code">SELECT POW(2, 3) AS power_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/numeric/pow.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>POWER()</b></td>
+            <td>Returns the value of a number raised to the power of another number</td>
+            <td class="code">SELECT POWER(2, 3) AS power_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/numeric/power.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>RADIANS()</b></td>
+            <td>Converts a degree value to radians</td>
+            <td class="code">SELECT RADIANS(180) AS radians_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/numeric/radians.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>RAND()</b></td>
+            <td>Returns a random number between 0 and 1</td>
+            <td class="code">SELECT first_name, RAND() AS random_value FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/numeric/rand.php">View Output</a></td>
         </tr>
 
         <tr>
             <td><b>ROUND()</b></td>
             <td>Rounds numbers</td>
             <td class="code">SELECT first_name, salary, ROUND(salary, 0) AS rounded_salary FROM employees LIMIT 5;</td>
-            <td><a href="sql-functions/round.php">View Output</a></td>
+            <td><a href="sql-functions/numeric/round.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>SIGN()</b></td>
+            <td>Returns the sign of a number</td>
+            <td class="code">SELECT salary, SIGN(salary - 60000) AS sign_value FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/numeric/sign.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>SIN()</b></td>
+            <td>Returns the sine of a number</td>
+            <td class="code">SELECT SIN(PI() / 2) AS sin_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/numeric/sin.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>SQRT()</b></td>
+            <td>Returns the square root of a number</td>
+            <td class="code">SELECT SQRT(16) AS sqrt_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/numeric/sqrt.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>SUM()</b></td>
+            <td>Adds up values</td>
+            <td class="code">SELECT department, SUM(salary) AS total_salary FROM employees GROUP BY department;</td>
+            <td><a href="sql-functions/numeric/sum.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>TAN()</b></td>
+            <td>Returns the tangent of a number</td>
+            <td class="code">SELECT TAN(PI() / 4) AS tan_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/numeric/tan.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>TRUNCATE()</b></td>
+            <td>Truncates a number to a specified number of decimal places</td>
+            <td class="code">SELECT salary, TRUNCATE(salary, 0) AS truncated_salary FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/numeric/truncate.php">View Output</a></td>
         </tr>
 
         <tr>
@@ -408,7 +618,7 @@
     </table>
 
     <hr>
-    <p>Total: 49 SQL Functions (33 String + 6 Numeric + 6 Date + 4 Advanced)</p>
+    <p>Total: 79 SQL Functions (33 String + 36 Numeric + 6 Date + 4 Advanced)</p>
 </body>
 
 </html>
