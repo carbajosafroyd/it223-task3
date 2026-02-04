@@ -37,7 +37,9 @@
 
 <body>
     <h1>IT223 - Task 3</h1>
-    <p>FROYD D. CARBAJOSA (BSIT - 2C)</p>
+    <p>FROYD D. CARBAJOSA </p>
+    <p>ETHAN MAR D. DEMETERIO</p>
+    <p>(BSIT - 2C)</p>
 
     <table class="table">
         <tr>
