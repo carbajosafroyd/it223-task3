@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>SQL Functions - Task 3</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
         body {
             font-family: Arial;
@@ -25,7 +25,7 @@
         }
 
         th {
-            background-color: #e7e7e7 !important;            
+            background-color: #e7e7e7 !important;
         }
 
         .code {
@@ -166,7 +166,7 @@
         <tr>
             <td><b>LTRIM()</b></td>
             <td>Removes leading spaces from a string</td>
-            <td class="code">SELECT LTRIM('   Hello World') AS trimmed_text FROM employees LIMIT 1;</td>
+            <td class="code">SELECT LTRIM(' Hello World') AS trimmed_text FROM employees LIMIT 1;</td>
             <td><a href="sql-functions/string/ltrim.php">View Output</a></td>
         </tr>
 
@@ -222,7 +222,7 @@
         <tr>
             <td><b>RTRIM()</b></td>
             <td>Removes trailing spaces from a string</td>
-            <td class="code">SELECT RTRIM('Hello World   ') AS trimmed_text FROM employees LIMIT 1;</td>
+            <td class="code">SELECT RTRIM('Hello World ') AS trimmed_text FROM employees LIMIT 1;</td>
             <td><a href="sql-functions/string/rtrim.php">View Output</a></td>
         </tr>
 
@@ -264,7 +264,7 @@
         <tr>
             <td><b>TRIM()</b></td>
             <td>Removes leading and trailing spaces from a string</td>
-            <td class="code">SELECT TRIM('   Hello World   ') AS trimmed_text FROM employees LIMIT 1;</td>
+            <td class="code">SELECT TRIM(' Hello World ') AS trimmed_text FROM employees LIMIT 1;</td>
             <td><a href="sql-functions/string/trim.php">View Output</a></td>
         </tr>
 
@@ -897,36 +897,141 @@
         </tr>
 
         <tr>
-            <td><b>IF()</b></td>
-            <td>Returns value based on condition</td>
-            <td class="code">SELECT first_name, salary, IF(salary > 60000, 'High', 'Low') AS salary_level FROM employees LIMIT 5;</td>
-            <td><a href="sql-functions/if.php">View Output</a></td>
+            <td><b>BIN()</b></td>
+            <td>Returns a binary representation of a number</td>
+            <td class="code">SELECT id, BIN(id) AS binary_value FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/advanced/bin.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>BINARY</b></td>
+            <td>Converts a value to a binary string</td>
+            <td class="code">SELECT first_name, BINARY first_name AS binary_name FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/advanced/binary.php">View Output</a></td>
         </tr>
 
         <tr>
             <td><b>CASE</b></td>
-            <td>Multiple condition checking</td>
-            <td class="code">SELECT first_name, salary, CASE WHEN salary > 70000 THEN 'Senior' WHEN salary > 55000 THEN 'Mid-Level' ELSE 'Junior' END AS position_level FROM employees LIMIT 5;</td>
-            <td><a href="sql-functions/case.php">View Output</a></td>
+            <td>Goes through conditions and returns value</td>
+            <td class="code">SELECT first_name, salary, CASE WHEN salary >= 70000 THEN 'High' WHEN salary >= 50000 THEN 'Medium' ELSE 'Low' END AS salary_level FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/advanced/case.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>CAST()</b></td>
+            <td>Converts a value from one datatype to another</td>
+            <td class="code">SELECT id, CAST(id AS CHAR) AS id_as_char FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/advanced/cast.php">View Output</a></td>
         </tr>
 
         <tr>
             <td><b>COALESCE()</b></td>
             <td>Returns first non-null value</td>
-            <td class="code">SELECT first_name, COALESCE(phone, email, 'No contact') AS contact_info FROM employees LIMIT 5;</td>
-            <td><a href="sql-functions/coalesce.php">View Output</a></td>
+            <td class="code">SELECT first_name, COALESCE(NULL, NULL, first_name, 'N/A') AS coalesce_result FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/advanced/coalesce.php">View Output</a></td>
         </tr>
 
         <tr>
-            <td><b>DISTINCT</b></td>
-            <td>Shows unique values only</td>
-            <td class="code">SELECT DISTINCT department FROM employees ORDER BY department;</td>
-            <td><a href="sql-functions/distinct.php">View Output</a></td>
+            <td><b>CONNECTION_ID()</b></td>
+            <td>Returns the unique connection ID</td>
+            <td class="code">SELECT CONNECTION_ID() AS connection_id FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/advanced/connection_id.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>CONV()</b></td>
+            <td>Converts a number from one base to another</td>
+            <td class="code">SELECT CONV(15, 10, 2) AS decimal_to_binary FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/advanced/conv.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>CONVERT()</b></td>
+            <td>Converts a value from one datatype to another</td>
+            <td class="code">SELECT id, CONVERT(id, CHAR) AS id_converted FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/advanced/convert.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>CURRENT_USER()</b></td>
+            <td>Returns the current MySQL user name and host</td>
+            <td class="code">SELECT CURRENT_USER() AS current_user_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/advanced/current_user.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>DATABASE()</b></td>
+            <td>Returns the name of the current database</td>
+            <td class="code">SELECT DATABASE() AS database_name FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/advanced/database.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>IF()</b></td>
+            <td>Returns value based on condition</td>
+            <td class="code">SELECT first_name, salary, IF(salary > 60000, 'High', 'Low') AS salary_level FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/advanced/if.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>IFNULL()</b></td>
+            <td>Returns a specified value if expression is NULL</td>
+            <td class="code">SELECT first_name, IFNULL(NULL, first_name) AS ifnull_result FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/advanced/ifnull.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>ISNULL()</b></td>
+            <td>Returns 1 or 0 depending on if expression is NULL</td>
+            <td class="code">SELECT first_name, ISNULL(first_name) AS is_null FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/advanced/isnull.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>LAST_INSERT_ID()</b></td>
+            <td>Returns the AUTO_INCREMENT id of last row</td>
+            <td class="code">SELECT LAST_INSERT_ID() AS last_insert_id FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/advanced/last_insert_id.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>NULLIF()</b></td>
+            <td>Returns NULL if two expressions are equal</td>
+            <td class="code">SELECT first_name, NULLIF(first_name, 'John') AS nullif_result FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/advanced/nullif.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>SESSION_USER()</b></td>
+            <td>Returns the current MySQL user name and host</td>
+            <td class="code">SELECT SESSION_USER() AS session_user FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/advanced/session_user.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>SYSTEM_USER()</b></td>
+            <td>Returns the current MySQL user name and host</td>
+            <td class="code">SELECT SYSTEM_USER() AS system_user FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/advanced/system_user.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>USER()</b></td>
+            <td>Returns the current MySQL user name and host</td>
+            <td class="code">SELECT USER() AS user_info FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/advanced/user.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>VERSION()</b></td>
+            <td>Returns the current MySQL version</td>
+            <td class="code">SELECT VERSION() AS mysql_version FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/advanced/version.php">View Output</a></td>
         </tr>
     </table>
 
     <hr>
-    <p>Total: 123 SQL Functions (33 String + 36 Numeric + 50 Date + 4 Advanced)</p>
+    <p>Total: 138 SQL Functions</p>
 </body>
 
 </html>

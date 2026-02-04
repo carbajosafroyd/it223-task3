@@ -1,6 +1,6 @@
 <?php
-include '../db_connect.php';
-$sql = "SELECT DISTINCT department FROM employees ORDER BY department";
+include '../../db_connect.php';
+$sql = "SELECT CONNECTION_ID() AS connection_id FROM employees LIMIT 1";
 $result = $conn->query($sql);
 ?>
 <html>
@@ -8,27 +8,27 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DISTINCT() Function</title>
+    <title>CONNECTION_ID() Function</title>
 </head>
 
 <body>
-    <h2>DISTINCT Function</h2>
-    <p>Unique values</p>
+    <h2>CONNECTION_ID() Function</h2>
+    <p>Returns the unique connection ID for the current connection</p>
     <p><b>SQL Query:</b></p>
     <pre><?php echo $sql; ?></pre>
     <p><b>Results:</b></p>
     <table border="1">
         <tr>
-            <th>Department</th>
+            <th>Connection ID</th>
         </tr>
         <?php
         while ($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row['department'] . "</td></tr>";
+            echo "<tr><td>" . $row['connection_id'] . "</td></tr>";
         }
         $conn->close();
         ?>
     </table>
-    <p><a href="../index.php">Back</a></p>
+    <p><a href="../../index.php">Back</a></p>
 </body>
 
 </html>
