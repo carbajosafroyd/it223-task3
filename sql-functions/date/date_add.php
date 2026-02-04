@@ -1,6 +1,6 @@
 <?php
-include '../db_connect.php';
-$sql = "SELECT first_name, hire_date, DATEDIFF(CURDATE(), hire_date) AS days FROM employees LIMIT 5";
+include '../../db_connect.php';
+$sql = "SELECT hire_date, DATE_ADD(hire_date, INTERVAL 1 YEAR) AS date_plus_year FROM employees LIMIT 5";
 $result = $conn->query($sql);
 ?>
 <html>
@@ -8,29 +8,28 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DATEDIFF() Function</title>
+    <title>DATE_ADD() Function</title>
 </head>
 
 <body>
-    <h2>DATEDIFF() Function</h2>
-    <p>Days between dates</p>
+    <h2>DATE_ADD() Function</h2>
+    <p>Adds a time/date interval to a date and returns the date</p>
     <p><b>SQL Query:</b></p>
     <pre><?php echo $sql; ?></pre>
     <p><b>Results:</b></p>
     <table border="1">
         <tr>
-            <th>Name</th>
             <th>Hire Date</th>
-            <th>Days Employed</th>
+            <th>Date Plus 1 Year</th>
         </tr>
         <?php
         while ($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row['first_name'] . "</td><td>" . $row['hire_date'] . "</td><td>" . $row['days'] . "</td></tr>";
+            echo "<tr><td>" . $row['hire_date'] . "</td><td>" . $row['date_plus_year'] . "</td></tr>";
         }
         $conn->close();
         ?>
     </table>
-    <p><a href="../index.php">Back</a></p>
+    <p><a href="../../index.php">Back</a></p>
 </body>
 
 </html>

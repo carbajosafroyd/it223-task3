@@ -1,6 +1,6 @@
 <?php
-include '../db_connect.php';
-$sql = "SELECT first_name, birth_date, MONTH(birth_date) AS month FROM employees LIMIT 5";
+include '../../db_connect.php';
+$sql = "SELECT first_name, birth_date, MONTH(birth_date) AS birth_month FROM employees LIMIT 5";
 $result = $conn->query($sql);
 ?>
 <html>
@@ -19,18 +19,18 @@ $result = $conn->query($sql);
     <p><b>Results:</b></p>
     <table border="1">
         <tr>
-            <th>Name</th>
+            <th>First Name</th>
             <th>Birth Date</th>
-            <th>Month</th>
+            <th>Birth Month</th>
         </tr>
         <?php
         while ($row = $result->fetch_assoc()) {
-            echo "<tr><td>" . $row['first_name'] . "</td><td>" . $row['birth_date'] . "</td><td>" . $row['month'] . "</td></tr>";
+            echo "<tr><td>" . $row['first_name'] . "</td><td>" . $row['birth_date'] . "</td><td>" . $row['birth_month'] . "</td></tr>";
         }
         $conn->close();
         ?>
     </table>
-    <p><a href="../index.php">Back</a></p>
+    <p><a href="../../index.php">Back</a></p>
 </body>
 
 </html>

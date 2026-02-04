@@ -543,45 +543,353 @@
         </tr>
 
         <tr>
-            <td><b>NOW()</b></td>
-            <td>Gets current date and time</td>
-            <td class="code">SELECT NOW() AS current_datetime;</td>
-            <td><a href="sql-functions/now.php">View Output</a></td>
+            <td><b>ADDDATE()</b></td>
+            <td>Adds a time/date interval to a date</td>
+            <td class="code">SELECT hire_date, ADDDATE(hire_date, INTERVAL 30 DAY) AS date_plus_30 FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/date/adddate.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>ADDTIME()</b></td>
+            <td>Adds a time interval to a time/datetime</td>
+            <td class="code">SELECT NOW() AS current_datetime, ADDTIME(NOW(), '02:30:00') AS time_plus_2h30m FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/addtime.php">View Output</a></td>
         </tr>
 
         <tr>
             <td><b>CURDATE()</b></td>
             <td>Gets current date</td>
-            <td class="code">SELECT CURDATE() AS current_date;</td>
-            <td><a href="sql-functions/curdate.php">View Output</a></td>
+            <td class="code">SELECT CURDATE() AS today_date FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/curdate.php">View Output</a></td>
         </tr>
 
         <tr>
-            <td><b>YEAR()</b></td>
-            <td>Gets year from date</td>
-            <td class="code">SELECT first_name, hire_date, YEAR(hire_date) AS hire_year FROM employees LIMIT 5;</td>
-            <td><a href="sql-functions/year.php">View Output</a></td>
+            <td><b>CURRENT_DATE()</b></td>
+            <td>Returns the current date</td>
+            <td class="code">SELECT CURRENT_DATE() AS today_date FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/current_date.php">View Output</a></td>
         </tr>
 
         <tr>
-            <td><b>MONTH()</b></td>
-            <td>Gets month from date</td>
-            <td class="code">SELECT first_name, birth_date, MONTH(birth_date) AS birth_month FROM employees LIMIT 5;</td>
-            <td><a href="sql-functions/month.php">View Output</a></td>
+            <td><b>CURRENT_TIME()</b></td>
+            <td>Returns the current time</td>
+            <td class="code">SELECT CURRENT_TIME() AS current_time_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/current_time.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>CURRENT_TIMESTAMP()</b></td>
+            <td>Returns the current date and time</td>
+            <td class="code">SELECT CURRENT_TIMESTAMP() AS current_ts FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/current_timestamp.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>CURTIME()</b></td>
+            <td>Returns the current time</td>
+            <td class="code">SELECT CURTIME() AS current_time_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/curtime.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>DATE()</b></td>
+            <td>Extracts the date part of a date or datetime expression</td>
+            <td class="code">SELECT NOW() AS datetime_value, DATE(NOW()) AS date_only FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/date.php">View Output</a></td>
         </tr>
 
         <tr>
             <td><b>DATEDIFF()</b></td>
             <td>Days between dates</td>
             <td class="code">SELECT first_name, hire_date, DATEDIFF(CURDATE(), hire_date) AS days_employed FROM employees LIMIT 5;</td>
-            <td><a href="sql-functions/datediff.php">View Output</a></td>
+            <td><a href="sql-functions/date/datediff.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>DATE_ADD()</b></td>
+            <td>Adds a time/date interval to a date</td>
+            <td class="code">SELECT hire_date, DATE_ADD(hire_date, INTERVAL 1 YEAR) AS date_plus_year FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/date/date_add.php">View Output</a></td>
         </tr>
 
         <tr>
             <td><b>DATE_FORMAT()</b></td>
             <td>Formats date display</td>
             <td class="code">SELECT first_name, hire_date, DATE_FORMAT(hire_date, '%M %d, %Y') AS formatted_date FROM employees LIMIT 5;</td>
-            <td><a href="sql-functions/date_format.php">View Output</a></td>
+            <td><a href="sql-functions/date/date_format.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>DATE_SUB()</b></td>
+            <td>Subtracts a time/date interval from a date</td>
+            <td class="code">SELECT hire_date, DATE_SUB(hire_date, INTERVAL 6 MONTH) AS date_minus_6months FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/date/date_sub.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>DAY()</b></td>
+            <td>Returns the day of the month</td>
+            <td class="code">SELECT hire_date, DAY(hire_date) AS day_of_month FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/date/day.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>DAYNAME()</b></td>
+            <td>Returns the weekday name</td>
+            <td class="code">SELECT hire_date, DAYNAME(hire_date) AS day_name FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/date/dayname.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>DAYOFMONTH()</b></td>
+            <td>Returns the day of the month</td>
+            <td class="code">SELECT hire_date, DAYOFMONTH(hire_date) AS day_of_month FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/date/dayofmonth.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>DAYOFWEEK()</b></td>
+            <td>Returns the weekday index</td>
+            <td class="code">SELECT hire_date, DAYOFWEEK(hire_date) AS day_of_week FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/date/dayofweek.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>DAYOFYEAR()</b></td>
+            <td>Returns the day of the year</td>
+            <td class="code">SELECT hire_date, DAYOFYEAR(hire_date) AS day_of_year FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/date/dayofyear.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>EXTRACT()</b></td>
+            <td>Extracts a part from a given date</td>
+            <td class="code">SELECT hire_date, EXTRACT(YEAR FROM hire_date) AS extracted_year FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/date/extract.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>FROM_DAYS()</b></td>
+            <td>Returns a date from a numeric datevalue</td>
+            <td class="code">SELECT FROM_DAYS(738000) AS date_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/from_days.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>HOUR()</b></td>
+            <td>Returns the hour part</td>
+            <td class="code">SELECT NOW() AS current_datetime, HOUR(NOW()) AS hour_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/hour.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>LAST_DAY()</b></td>
+            <td>Returns the last day of the month</td>
+            <td class="code">SELECT hire_date, LAST_DAY(hire_date) AS last_day_of_month FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/date/last_day.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>LOCALTIME()</b></td>
+            <td>Returns the current date and time</td>
+            <td class="code">SELECT LOCALTIME() AS local_time FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/localtime.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>LOCALTIMESTAMP()</b></td>
+            <td>Returns the current date and time</td>
+            <td class="code">SELECT LOCALTIMESTAMP() AS local_timestamp FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/localtimestamp.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>MAKEDATE()</b></td>
+            <td>Creates a date from year and day values</td>
+            <td class="code">SELECT MAKEDATE(2024, 100) AS date_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/makedate.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>MAKETIME()</b></td>
+            <td>Creates a time from hour, minute, second</td>
+            <td class="code">SELECT MAKETIME(10, 30, 45) AS time_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/maketime.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>MICROSECOND()</b></td>
+            <td>Returns the microsecond part</td>
+            <td class="code">SELECT NOW() AS current_datetime, MICROSECOND(NOW()) AS microsecond_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/microsecond.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>MINUTE()</b></td>
+            <td>Returns the minute part</td>
+            <td class="code">SELECT NOW() AS current_datetime, MINUTE(NOW()) AS minute_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/minute.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>MONTH()</b></td>
+            <td>Gets month from date</td>
+            <td class="code">SELECT first_name, birth_date, MONTH(birth_date) AS birth_month FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/date/month.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>MONTHNAME()</b></td>
+            <td>Returns the name of the month</td>
+            <td class="code">SELECT birth_date, MONTHNAME(birth_date) AS month_name FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/date/monthname.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>NOW()</b></td>
+            <td>Gets current date and time</td>
+            <td class="code">SELECT NOW() AS current_datetime FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/now.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>PERIOD_ADD()</b></td>
+            <td>Adds months to a period</td>
+            <td class="code">SELECT PERIOD_ADD(202301, 3) AS period_result FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/period_add.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>PERIOD_DIFF()</b></td>
+            <td>Returns the difference between two periods</td>
+            <td class="code">SELECT PERIOD_DIFF(202312, 202301) AS period_difference FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/period_diff.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>QUARTER()</b></td>
+            <td>Returns the quarter of the year</td>
+            <td class="code">SELECT hire_date, QUARTER(hire_date) AS quarter_value FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/date/quarter.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>SECOND()</b></td>
+            <td>Returns the seconds part</td>
+            <td class="code">SELECT NOW() AS current_datetime, SECOND(NOW()) AS second_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/second.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>SEC_TO_TIME()</b></td>
+            <td>Returns a time value from seconds</td>
+            <td class="code">SELECT SEC_TO_TIME(3665) AS time_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/sec_to_time.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>STR_TO_DATE()</b></td>
+            <td>Returns a date based on string and format</td>
+            <td class="code">SELECT STR_TO_DATE('January 15 2024', '%M %d %Y') AS date_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/str_to_date.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>SUBDATE()</b></td>
+            <td>Subtracts a time/date interval from a date</td>
+            <td class="code">SELECT hire_date, SUBDATE(hire_date, INTERVAL 15 DAY) AS date_minus_15 FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/date/subdate.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>SUBTIME()</b></td>
+            <td>Subtracts time from a time/datetime</td>
+            <td class="code">SELECT NOW() AS current_datetime, SUBTIME(NOW(), '01:30:00') AS time_minus_1h30m FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/subtime.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>SYSDATE()</b></td>
+            <td>Returns the current date and time</td>
+            <td class="code">SELECT SYSDATE() AS system_date FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/sysdate.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>TIME()</b></td>
+            <td>Extracts the time part</td>
+            <td class="code">SELECT NOW() AS datetime_value, TIME(NOW()) AS time_only FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/time.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>TIME_FORMAT()</b></td>
+            <td>Formats a time by a specified format</td>
+            <td class="code">SELECT NOW() AS current_datetime, TIME_FORMAT(NOW(), '%H:%i:%s') AS formatted_time FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/time_format.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>TIME_TO_SEC()</b></td>
+            <td>Converts a time value into seconds</td>
+            <td class="code">SELECT TIME_TO_SEC('01:30:45') AS seconds FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/time_to_sec.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>TIMEDIFF()</b></td>
+            <td>Returns the difference between two time/datetime</td>
+            <td class="code">SELECT TIMEDIFF('13:30:00', '10:00:00') AS time_difference FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/timediff.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>TIMESTAMP()</b></td>
+            <td>Returns a datetime value</td>
+            <td class="code">SELECT TIMESTAMP('2024-01-15', '10:30:00') AS timestamp_value FROM employees LIMIT 1;</td>
+            <td><a href="sql-functions/date/timestamp.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>TO_DAYS()</b></td>
+            <td>Returns the number of days between a date and year 0</td>
+            <td class="code">SELECT hire_date, TO_DAYS(hire_date) AS days_value FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/date/to_days.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>WEEK()</b></td>
+            <td>Returns the week number</td>
+            <td class="code">SELECT hire_date, WEEK(hire_date) AS week_number FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/date/week.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>WEEKDAY()</b></td>
+            <td>Returns the weekday index</td>
+            <td class="code">SELECT hire_date, WEEKDAY(hire_date) AS weekday_index FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/date/weekday.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>WEEKOFYEAR()</b></td>
+            <td>Returns the week number</td>
+            <td class="code">SELECT hire_date, WEEKOFYEAR(hire_date) AS week_of_year FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/date/weekofyear.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>YEAR()</b></td>
+            <td>Gets year from date</td>
+            <td class="code">SELECT first_name, hire_date, YEAR(hire_date) AS hire_year FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/date/year.php">View Output</a></td>
+        </tr>
+
+        <tr>
+            <td><b>YEARWEEK()</b></td>
+            <td>Returns the year and week number</td>
+            <td class="code">SELECT hire_date, YEARWEEK(hire_date) AS year_week FROM employees LIMIT 5;</td>
+            <td><a href="sql-functions/date/yearweek.php">View Output</a></td>
         </tr>
 
         <tr>
@@ -618,7 +926,7 @@
     </table>
 
     <hr>
-    <p>Total: 79 SQL Functions (33 String + 36 Numeric + 6 Date + 4 Advanced)</p>
+    <p>Total: 123 SQL Functions (33 String + 36 Numeric + 50 Date + 4 Advanced)</p>
 </body>
 
 </html>
